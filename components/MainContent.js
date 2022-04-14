@@ -2,7 +2,7 @@ import { useState } from "react";
 import { StyleSheet, Text, View, Image, Button, Alert, TextInput, ScrollView, SafeAreaView, TouchableHighlight } from "react-native";
 import { t } from "react-native-tailwindcss";
 
-export const MainContent = props => {
+export default function MainContent({navigation}) {
   var [chBut, setButton] = useState({ salary: 100000, percent: "51%" });
   var [chStatus, setStatus] = useState(false);
   var [opBlock, setBlock] = useState(0);
@@ -31,9 +31,13 @@ export const MainContent = props => {
         setBlock("auto")
     }
   }
+  const loadScene = () => {
+    navigation.navigate('About')
+  }
   return (
     <>
     <SafeAreaView>
+      <Button title="To About" onPress={loadScene}/>
       <ScrollView style={t.h40} horizontal={ true }>
         <TouchableHighlight onPress={chVal}>
               <Image style={[t.hAuto]} source={require('../assets/1.jpg')}/>

@@ -14,28 +14,21 @@ import { Navbar } from "./components/Navbar";
 import * as Font from "expo-font";
 import AppLoading from "expo-app-loading";
 
-// import { cStyle } from "./components/cStyle";
+import Navigate from './components/Navigate'
+
 import { BottomMenu } from "./components/BottomMenu";
-import { MainContent } from "./components/MainContent";
 import { cStyle } from "./components/cStyle";
 
 const fonts = () => Font.loadAsync({
   SFProDisplay: require('./assets/fonts/SFProDisplay-Regular.ttf')
 })
 
-export default function App() {
+export default function App({ navigation }) {
   const [font, setFont] = useState(false);
 
   if(font) {
     return (
-      <View>
-          <ScrollView>
-          <Navbar title="Navbar title"/>
-          <Text style={[ cStyle.textWithFont ]}>Hello!</Text>
-          <MainContent />
-        </ScrollView>
-        <BottomMenu />
-      </View>
+      <Navigate />
     );
   } else {
     return (
