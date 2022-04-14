@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { StyleSheet, Text, View, Image, Button, Alert, TextInput, ScrollView, SafeAreaView, TouchableHighlight } from "react-native";
+import { FlatList, StyleSheet, Text, View, Image, Button, Alert, TextInput, ScrollView, SafeAreaView, TouchableHighlight } from "react-native";
 import { t } from "react-native-tailwindcss";
 
 export default function MainContent({navigation}) {
@@ -7,6 +7,18 @@ export default function MainContent({navigation}) {
   var [chStatus, setStatus] = useState(false);
   var [opBlock, setBlock] = useState(0);
   var [changeValue, getValue] = useState(0);
+  const [users, setUser] = useState([
+    {
+      name: "Stas",
+      username: "Ryan Gosling",
+      status: "Some status"
+    },
+    {
+      name: "Olzhas",
+      username: "alidarov",
+      status: "..."
+    }
+  ])
   
   function changeButton() {
     if (chStatus === false) {
@@ -37,7 +49,6 @@ export default function MainContent({navigation}) {
   return (
     <>
     <SafeAreaView>
-      <Button title="To About" onPress={loadScene}/>
       <ScrollView style={t.h40} horizontal={ true }>
         <TouchableHighlight onPress={chVal}>
               <Image style={[t.hAuto]} source={require('../assets/1.jpg')}/>
@@ -46,6 +57,10 @@ export default function MainContent({navigation}) {
               <Image style={[t.hAuto]} source={require('../assets/3.jpg')}/>
               <Image style={[t.hAuto]} source={require('../assets/4.jpg')}/>
       </ScrollView>
+      <Button title="To About" onPress={loadScene}/>
+      <FlatList data={users} renderItem={( { item } ) => (
+        <Button title={ item.name } onPress={() => navigation.navigate('Single', item)} />
+      )} />
       <Text >{changeValue}</Text>
       <Image source={ require("../assets/1.jpg") }/>
       <View>
