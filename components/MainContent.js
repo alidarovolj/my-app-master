@@ -7,7 +7,7 @@ export const MainContent = props => {
   var [chStatus, setStatus] = useState(false);
   var [opBlock, setBlock] = useState(0);
   var [changeValue, getValue] = useState(0);
-  var inptext = ''
+  
   function changeButton() {
     if (chStatus === false) {
         setStatus(true);
