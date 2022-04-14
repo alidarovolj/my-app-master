@@ -11,12 +11,14 @@ export default function MainContent({navigation}) {
     {
       name: "Stas",
       username: "Ryan Gosling",
-      status: "Some status"
+      status: "Some status",
+      photo: "https://reactnative.dev/img/tiny_logo.png"
     },
     {
       name: "Olzhas",
       username: "alidarov",
-      status: "..."
+      status: "...",
+      photo: "https://reactnative.dev/img/tiny_logo.png"
     }
   ])
   
@@ -62,7 +64,6 @@ export default function MainContent({navigation}) {
         <Button title={ item.name } onPress={() => navigation.navigate('Single', item)} />
       )} />
       <Text >{changeValue}</Text>
-      <Image source={ require("../assets/1.jpg") }/>
       <View>
           <View style={[ t.flex, t.flexRow, t.justifyBetween, t.pX4, t.mY4 ]}>
               <Button onPress={changeButton} title="Без опыта" />

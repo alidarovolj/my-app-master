@@ -7,6 +7,7 @@ export default function Single({ route }) {
         <>
         <SafeAreaView>
             <Text>{ route.params.username }</Text>
+            <Image style={[ t.w10, t.h10 ]} source={{ uri: route.params.photo }}/>
         </SafeAreaView>
         </>
     );
